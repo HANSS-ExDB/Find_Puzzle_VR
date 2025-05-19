@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 99d2cd3fe5794f343a6c87bfdff162f3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Demo/Scripts/LevelManager.cs
+  uploadId: 709742

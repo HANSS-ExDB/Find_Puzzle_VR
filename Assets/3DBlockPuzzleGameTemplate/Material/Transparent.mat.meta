@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d7ffc93ef80c6b84b98079e9069c2240
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Material/Transparent.mat
+  uploadId: 709742

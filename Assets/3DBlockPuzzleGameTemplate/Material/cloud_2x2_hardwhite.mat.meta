@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 22857b00c3212334fa78c24dcd416e11
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Material/cloud_2x2_hardwhite.mat
+  uploadId: 709742

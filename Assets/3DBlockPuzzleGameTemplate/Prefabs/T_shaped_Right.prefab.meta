@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a3f7bd29bf8d41842a6f2dd55a137de1
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/T_shaped_Right.prefab
+  uploadId: 709742

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ceb5a7d6f9cc41547ab009770e88611a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/Z_shaped_RightHorizontal.prefab
+  uploadId: 709742

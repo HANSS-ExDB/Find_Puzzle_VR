@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 32f10351da0125d4d9ea950ff1888f0a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Material/confetti.mat
+  uploadId: 709742

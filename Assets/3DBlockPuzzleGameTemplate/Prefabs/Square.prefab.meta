@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e1af8334ef5eead4e963951c93e0adc1
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/Square.prefab
+  uploadId: 709742

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2b1dc2e3fc2f9e34ebf80f1d4d2cfe7f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/L_shaped_RightBottom.prefab
+  uploadId: 709742

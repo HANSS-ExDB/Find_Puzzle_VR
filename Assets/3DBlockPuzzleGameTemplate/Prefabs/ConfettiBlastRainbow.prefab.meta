@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9f17ef1aba34f0340a122395f4512084
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/ConfettiBlastRainbow.prefab
+  uploadId: 709742

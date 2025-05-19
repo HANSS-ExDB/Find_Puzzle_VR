@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d885bb7418781ff4ba632573b56de9a4
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Resources/Levels/Level_8.prefab
+  uploadId: 709742

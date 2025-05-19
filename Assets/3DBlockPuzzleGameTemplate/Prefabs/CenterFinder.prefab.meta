@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0b076a59356db1d4cb3bbbe516f40148
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/CenterFinder.prefab
+  uploadId: 709742

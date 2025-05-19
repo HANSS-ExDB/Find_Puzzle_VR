@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 385d93a9e24fbb344967153ecb46ebb8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Material/circle.mat
+  uploadId: 709742

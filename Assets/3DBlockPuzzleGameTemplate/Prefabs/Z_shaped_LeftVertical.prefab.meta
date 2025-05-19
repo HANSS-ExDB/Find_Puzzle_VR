@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c605bc49338b3684780606d8ebfe7de4
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/Z_shaped_LeftVertical.prefab
+  uploadId: 709742

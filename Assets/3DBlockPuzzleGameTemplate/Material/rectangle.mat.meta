@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 524988dd7f574b74dad01ecfa82bb321
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Material/rectangle.mat
+  uploadId: 709742

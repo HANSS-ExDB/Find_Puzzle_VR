@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3d4183de297d8c042b7e48d40fc4484e
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/Large_Rectangular_Horizontal.prefab
+  uploadId: 709742

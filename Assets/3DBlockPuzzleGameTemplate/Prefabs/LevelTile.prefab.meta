@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2d119653f5293cb4abca244eafa24e20
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/LevelTile.prefab
+  uploadId: 709742

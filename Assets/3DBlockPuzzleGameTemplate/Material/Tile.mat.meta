@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7fe76d63e9ba3a34ca34011ee1010b05
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Material/Tile.mat
+  uploadId: 709742

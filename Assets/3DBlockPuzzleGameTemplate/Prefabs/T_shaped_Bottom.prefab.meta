@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 073d92c7be860304688b94dcff4095d6
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/T_shaped_Bottom.prefab
+  uploadId: 709742

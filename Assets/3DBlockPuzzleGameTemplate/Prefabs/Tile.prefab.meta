@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7ebaef6ed3a824946994a01219da7053
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/Tile.prefab
+  uploadId: 709742

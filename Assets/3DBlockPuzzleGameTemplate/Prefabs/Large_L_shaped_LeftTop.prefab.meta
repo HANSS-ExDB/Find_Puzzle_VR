@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e34e4f74137449f45bbd6af353e4a88c
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/Large_L_shaped_LeftTop.prefab
+  uploadId: 709742

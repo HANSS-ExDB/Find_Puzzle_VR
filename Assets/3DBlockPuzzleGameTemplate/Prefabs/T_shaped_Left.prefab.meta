@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5d6144cf3f8979742af2372598c2e1fc
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Prefabs/T_shaped_Left.prefab
+  uploadId: 709742

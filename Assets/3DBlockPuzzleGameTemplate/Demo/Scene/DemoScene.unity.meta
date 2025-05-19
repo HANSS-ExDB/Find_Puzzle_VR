@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: eca8ab29a9f13024bb27874ad162419f
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 302830
+  packageName: 3D Block puzzle game template
+  packageVersion: 1.0
+  assetPath: Assets/3DBlockPuzzleGameTemplate/Demo/Scene/DemoScene.unity
+  uploadId: 709742
