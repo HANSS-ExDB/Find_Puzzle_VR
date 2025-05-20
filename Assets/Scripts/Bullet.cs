@@ -20,11 +20,11 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // 충돌한 오브젝트의 태그가 "Player", "Obstacle", 또는 "Enermy"일 경우
+        // 충돌한 오브젝트의 태그가 "Player", "Obstacle", 또는 "Enemy"일 경우
         // 총알을 제거 (즉시 삭제)
-        if (other.CompareTag("Player") || other.CompareTag("Obstacle") || other.CompareTag("Enermy"))
+        if (other.CompareTag("Player") || other.CompareTag("Obstacle") || other.CompareTag("Enemy"))
         {
-            Debug.Log("Bullet hits Player");
+            Debug.Log("Bullet hits "+ other.tag);
             Destroy(gameObject);
         }
     }
