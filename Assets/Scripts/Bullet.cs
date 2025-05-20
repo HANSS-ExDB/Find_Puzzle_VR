@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
         // 총알을 제거 (즉시 삭제)
         if (other.CompareTag("Player") || other.CompareTag("Obstacle") || other.CompareTag("Enermy"))
         {
+            Debug.Log("Bullet hits Player");
             Destroy(gameObject);
         }
     }
