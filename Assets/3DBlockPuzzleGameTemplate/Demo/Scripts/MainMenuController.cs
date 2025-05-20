@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace BlockPuzzleGameTemplate
 {
@@ -45,8 +46,7 @@ namespace BlockPuzzleGameTemplate
         IEnumerator RestartLevel(bool isFromPause)
         {
             yield return new WaitForSeconds(.5f);
-            levelManager.RestartLevel();
-            yield return null;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
