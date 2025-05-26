@@ -23,12 +23,14 @@ public class PortalSceneManager : MonoBehaviour
             isPlayerOnPortal = true;
             hasGrabbed = false;
             timer = 0f;
+            Debug.Log("Player On Portal");
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (!hasGrabbed && isPlayerOnPortal && other.transform.root.gameObject == player)
+        //  hasGrabbed 필요하면 조건에 추가
+        if (isPlayerOnPortal && other.transform.root.gameObject == player)
         {
             timer += Time.deltaTime;
             if (timer >= requiredTime)
