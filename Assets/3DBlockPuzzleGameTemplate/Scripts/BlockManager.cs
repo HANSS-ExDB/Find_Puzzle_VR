@@ -28,18 +28,13 @@ namespace BlockPuzzleGameTemplate
         {
             colorLib_ = FindObjectOfType<ColorLib>();
             blockLib_ = FindObjectOfType<BlockLib>();
-        }
-        void Update ()
-        {
             if (!isSpawningBlocks)
             {
-                CheckAndSpawnBlocksSequentially();
+                StartCoroutine(SpawnBlocksSequentially());
             }
         }
-
-        private void CheckAndSpawnBlocksSequentially ()
-        {
-            StartCoroutine(SpawnBlocksSequentially());
+        void Update ()
+        {  
         }
 
         private IEnumerator SpawnBlocksSequentially()

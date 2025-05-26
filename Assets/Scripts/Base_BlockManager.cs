@@ -16,16 +16,16 @@ namespace Base_BlockPuzzleGameTemplate
         ColorLib colorLib_;
         BlockLib blockLib_;
         public Transform spawnPos;
-        public BlockTarget [] blockTargets;
+        public BlockTarget[] blockTargets;
         public List<BlockDetails> blocks = new List<BlockDetails>();
 
         private bool isSpawningBlocks = false;
-        private void Start ()
+        private void Start()
         {
             colorLib_ = FindObjectOfType<ColorLib>();
             blockLib_ = FindObjectOfType<BlockLib>();
         }
-        void Update ()
+        void Update()
         {
             if (!isSpawningBlocks)
             {
@@ -33,18 +33,18 @@ namespace Base_BlockPuzzleGameTemplate
             }
         }
 
-        private void CheckAndSpawnBlocksSequentially ()
+        private void CheckAndSpawnBlocksSequentially()
         {
             StartCoroutine(SpawnBlocksSequentially());
         }
 
-        private IEnumerator SpawnBlocksSequentially ()
+        private IEnumerator SpawnBlocksSequentially()
         {
             isSpawningBlocks = true;
 
-            for (int i = 0 ; i < blockTargets.Length ; i++)
+            for (int i = 0; i < blockTargets.Length; i++)
             {
-                if (blockTargets [i].TheOwner == null && blockTargets [i].gameObject.activeSelf)
+                if (blockTargets[i].TheOwner == null && blockTargets[i].gameObject.activeSelf)
                 {
                     if (blocks.Count == 0)
                     {
@@ -54,22 +54,27 @@ namespace Base_BlockPuzzleGameTemplate
                     // Instantiate block from the first in the list
 
 
-                    GameObject block = blockLib_.GetBlockPref(blocks [0].Type_);
-                    GameObject go = Instantiate(block , spawnPos.position , Quaternion.identity);
+                    GameObject block = blockLib_.GetBlockPref(blocks[0].Type_);
+                    GameObject go = Instantiate(block, spawnPos.position, Quaternion.identity);
 
                     //var click = go.AddComponent<ClickableBlock>();
                     //click.blockId = blocks[0].Type_.ToString(); ; // 예: "L_block", "T_block"
                     //블록 클릭 상호작용, 삭제됨
-
+                    var rb = go.GetComponent<Rigidbody>();
+                    if (rb != null)
+                    {
+                        rb.isKinematic = true;    // 물리 연산 제외
+                        rb.useGravity = false;    // 중력 해제
+                    }
 
                     go.transform.Rotate(0f, 0f, -90f);
-                    go.GetComponent<Block>().type = blocks [0].Type_;
-                    MaterialSwap(go , colorLib_.GetMaterial(blocks [0].Color_));
-                    blockTargets [i].TheOwner = go;
-                    go.transform.SetParent(blockTargets [i].transform);
+                    go.GetComponent<Block>().type = blocks[0].Type_;
+                    MaterialSwap(go, colorLib_.GetMaterial(blocks[0].Color_));
+                    blockTargets[i].TheOwner = go;
+                    go.transform.SetParent(blockTargets[i].transform);
                     blocks.RemoveAt(0);
                     go.transform.localScale = Vector3.one / 2;
-                    yield return moveToPosition(go , blockTargets [i]);
+                    yield return moveToPosition(go, blockTargets[i]);
 
                 }
 
@@ -78,7 +83,7 @@ namespace Base_BlockPuzzleGameTemplate
             isSpawningBlocks = false;
         }
 
-        private IEnumerator moveToPosition ( GameObject block , BlockTarget target )
+        private IEnumerator moveToPosition(GameObject block, BlockTarget target)
         {
             Vector3 startPos = block.transform.localPosition;
             Vector3 targetPos = Vector3.zero;
@@ -87,16 +92,16 @@ namespace Base_BlockPuzzleGameTemplate
 
             while (elapsedTime < duration)
             {
-                block.transform.localPosition = Vector3.Lerp(startPos , targetPos , elapsedTime / duration);
+                block.transform.localPosition = Vector3.Lerp(startPos, targetPos, elapsedTime / duration);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
 
             block.transform.localPosition = targetPos;
-            yield return DoPunchEffect(block , targetPos);
+            yield return DoPunchEffect(block, targetPos);
         }
 
-        private IEnumerator DoPunchEffect ( GameObject block , Vector3 targetPos )
+        private IEnumerator DoPunchEffect(GameObject block, Vector3 targetPos)
         {
             float punchDuration = 0.2f;
             float punchMagnitude = 0.1f;
@@ -105,8 +110,8 @@ namespace Base_BlockPuzzleGameTemplate
             while (elapsedTime < punchDuration)
             {
                 float punchProgress = elapsedTime / punchDuration;
-                float dampenedPunch = Mathf.Sin(punchProgress * Mathf.PI * 2) * ( 1 - punchProgress ) * punchMagnitude;
-                block.transform.localPosition = targetPos + new Vector3(dampenedPunch , 0 , 0);
+                float dampenedPunch = Mathf.Sin(punchProgress * Mathf.PI * 2) * (1 - punchProgress) * punchMagnitude;
+                block.transform.localPosition = targetPos + new Vector3(dampenedPunch, 0, 0);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
@@ -115,12 +120,12 @@ namespace Base_BlockPuzzleGameTemplate
 
         }
 
-        private void MaterialSwap ( GameObject block , Material Mat )
+        private void MaterialSwap(GameObject block, Material Mat)
         {
-            MeshRenderer [] rend = block.GetComponentsInChildren<MeshRenderer>();
-            for (int i = 0 ; i < rend.Length ; i++)
+            MeshRenderer[] rend = block.GetComponentsInChildren<MeshRenderer>();
+            for (int i = 0; i < rend.Length; i++)
             {
-                rend [i].material = Mat;
+                rend[i].material = Mat;
             }
         }
     }

@@ -1,6 +1,8 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using BlockPuzzleGameTemplate;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 public class PortalSceneManager : MonoBehaviour
@@ -11,6 +13,7 @@ public class PortalSceneManager : MonoBehaviour
     private float timer = 0f;
     private bool isPlayerOnPortal = false;
     private bool hasGrabbed;
+    private bool isTransitioning = false;
 
     private void OnTriggerEnter(Collider other)
     {

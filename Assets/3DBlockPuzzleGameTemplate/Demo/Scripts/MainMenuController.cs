@@ -36,6 +36,9 @@ namespace BlockPuzzleGameTemplate
             StartCoroutine(GoToNextLevel());
         }
 
+        public void ReturnBasic() {
+            StartCoroutine(ReturnToBasic());
+        }
         IEnumerator GoToNextLevel()
         {
             yield return new WaitForSeconds(1f);
@@ -47,6 +50,13 @@ namespace BlockPuzzleGameTemplate
         {
             yield return new WaitForSeconds(.5f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        IEnumerator ReturnToBasic()
+        {
+            yield return new WaitForSeconds(.5f);
+            SceneManager.LoadScene("BasicScene");
+
         }
     }
 }
