@@ -2,9 +2,13 @@ using BlockPuzzleGameTemplate;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+
+
 namespace BlockPuzzleGameTemplate
 {
-    public class Block : MonoBehaviour
+    public class Block : XRGrabInteractable //MonoBehaviour
     {
         Level level;
         [SerializeField]
@@ -45,7 +49,7 @@ namespace BlockPuzzleGameTemplate
             if (levelRef != null)
                 marker.transform.SetParent(levelRef.transform);
             else
-                Debug.LogWarning("[Block] ºÎ¸ğ¿¡ LevelÀÌ ¾ø½À´Ï´Ù.");
+                Debug.LogWarning("[Block] ï¿½Î¸ï¿½ Levelï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 
             marker.transform.localScale = new Vector3(1, 0.2f, 1);
 
@@ -204,7 +208,7 @@ namespace BlockPuzzleGameTemplate
             Level level = Level.Instance;
             if (level == null)
             {
-                Debug.LogWarning("Level ÀÎ½ºÅÏ½º¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù. FinishedDrag °Ç³Ê¶Ü.");
+                Debug.LogWarning("Level ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. FinishedDrag ï¿½Ç³Ê¶ï¿½.");
                 return;
             }
 
@@ -659,6 +663,13 @@ namespace BlockPuzzleGameTemplate
                 }
             }
             return false;
+        }
+        protected override void OnSelectExited(SelectExitEventArgs args)
+        {
+            base.OnSelectExited(args);
+
+            // í”Œë ˆì´ì–´ê°€ ë¸”ë¡ì„ ë†“ì•˜ì„ ë•Œ í˜¸ì¶œ
+            StartCoroutine(ReturnToPosition());
         }
     }
 }
