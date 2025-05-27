@@ -74,8 +74,11 @@ namespace BlockPuzzleGameTemplate
                     Quaternion.identity,
                     slot.transform
                 );
+                var rb = go.GetComponent<Rigidbody>();
+                rb.useGravity = false;
                 go.transform.localScale = Vector3.one * 0.5f;
                 go.transform.localRotation = Quaternion.identity;
+                
 
                 // 4) 인벤토리에 저장된 머티리얼(entry.Mat) 적용
                 if (entry.Mat != null)
