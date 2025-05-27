@@ -73,7 +73,7 @@ namespace Base_BlockPuzzleGameTemplate
                     blockTargets[i].TheOwner = go;
                     go.transform.SetParent(blockTargets[i].transform);
                     blocks.RemoveAt(0);
-                    go.transform.localScale = Vector3.one / 2;
+                    go.transform.localScale = Vector3.one;
                     yield return moveToPosition(go, blockTargets[i]);
 
                 }

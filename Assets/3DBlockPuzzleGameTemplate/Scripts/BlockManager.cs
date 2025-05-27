@@ -75,7 +75,13 @@ namespace BlockPuzzleGameTemplate
                     slot.transform
                 );
                 var rb = go.GetComponent<Rigidbody>();
-                rb.useGravity = false;
+                if (rb != null)
+                {
+                    rb.useGravity = false;
+                    rb.isKinematic = true;
+                    rb.constraints = RigidbodyConstraints.FreezeRotationX
+                        | RigidbodyConstraints.FreezeRotationZ;
+                }
                 go.transform.localScale = Vector3.one * 0.5f;
                 go.transform.localRotation = Quaternion.identity;
                 

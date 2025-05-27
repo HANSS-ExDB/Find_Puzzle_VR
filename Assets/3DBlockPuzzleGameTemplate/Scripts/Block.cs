@@ -23,6 +23,12 @@ namespace BlockPuzzleGameTemplate
         public bool IsOnGrid = false;
 
 
+        protected override void Awake()
+        {
+            base.Awake();
+
+            this.trackRotation = false;
+        }
         private void Start ()
         {
             if (gameObject.layer == LayerMask.NameToLayer("InventoryOnly"))
@@ -668,8 +674,12 @@ namespace BlockPuzzleGameTemplate
         {
             base.OnSelectExited(args);
 
-            // 플레이어가 블록을 놓았을 때 호출
-            StartCoroutine(ReturnToPosition());
+            // 1) 드래그 중 블록 타일 콜라이더 다시 활성화
+            foreach (var tile in blockTiles)
+                tile.GetComponent<Collider>().enabled = true;
+
+            // 2) 원래 클릭&드래그에서 쓰던 퍼즐 배치 체크 및 스냅 로직 호출
+            FinishedDrag();
         }
     }
 }
