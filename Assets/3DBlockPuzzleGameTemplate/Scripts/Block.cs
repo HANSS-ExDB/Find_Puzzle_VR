@@ -2,6 +2,7 @@ using BlockPuzzleGameTemplate;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -432,7 +433,10 @@ namespace BlockPuzzleGameTemplate
             transform.position = endPosition;
 
             // Additional actions after movement
-            transform.localScale = Vector3.one;
+            if (SceneManager.GetActiveScene().name =="BasicScene")
+                transform.localScale = Vector3.one/2f;
+            else 
+                transform.localScale = Vector3.one;
             IsOnGrid = false;
         }
 
