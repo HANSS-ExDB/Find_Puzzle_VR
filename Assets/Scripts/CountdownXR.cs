@@ -12,7 +12,7 @@ public class CountdownXR : MonoBehaviour
     private ContinuousMoveProviderBase moveProvider;
     private ContinuousTurnProviderBase turnProvider;
 
-    private float timer = 0f;
+    public float timer = 0f;
     private bool isTimerRunning = false;
 
     void Start()
@@ -25,6 +25,7 @@ public class CountdownXR : MonoBehaviour
 
         timerText.gameObject.SetActive(false);  // 초기에는 숨기기
         timerText.text = "00:00";  // 초기화
+        timer += TimeManager.Instance.pasedTime;
         StartCoroutine(CountdownRoutine());
     }
 
@@ -41,19 +42,24 @@ public class CountdownXR : MonoBehaviour
 
     IEnumerator CountdownRoutine()
     {
-        countdownText.gameObject.SetActive(true);
+        if (TimeManager.Instance.pasedTime <= 1)
+        {
+            // 시간이 흐른적이 없다면 카운트다운
 
-        countdownText.text = "3";
-        yield return new WaitForSeconds(1f);
+            countdownText.gameObject.SetActive(true);
 
-        countdownText.text = "2";
-        yield return new WaitForSeconds(1f);
+            countdownText.text = "3";
+            yield return new WaitForSeconds(1f);
 
-        countdownText.text = "1";
-        yield return new WaitForSeconds(1f);
+            countdownText.text = "2";
+            yield return new WaitForSeconds(1f);
 
-        countdownText.text = "GO!";
-        yield return new WaitForSeconds(1f);
+            countdownText.text = "1";
+            yield return new WaitForSeconds(1f);
+
+            countdownText.text = "GO!";
+            yield return new WaitForSeconds(1f);
+        }
 
         countdownText.gameObject.SetActive(false);
 

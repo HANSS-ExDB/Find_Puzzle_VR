@@ -11,6 +11,7 @@ public class PortalSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject player;       // 인스펙터에 할당 //Player루트
     [SerializeField] private float requiredTime = 1f;
+    [SerializeField] private CountdownXR Timer; //타이머
 
     // ← Inspector에 할당할 XR 인터랙터(Direct 또는 Ray 중 하나)
     [SerializeField] private XRBaseInteractor leftHandInteractor;
@@ -93,6 +94,9 @@ public class PortalSceneManager : MonoBehaviour
     }
     private void StoreGrabbedBlockToInventory()
     {
+        // 0) 진행 시간을 저장 한다.
+        TimeManager.Instance.saveTime(Timer.timer);
+
         // 1) 좌/우 컨트롤러 중 하나가 잡고 있는 인터랙터를 가져온다
         var leftSel = leftHandInteractor.GetOldestInteractableSelected();
         var rightSel = rightHandInteractor.GetOldestInteractableSelected();
