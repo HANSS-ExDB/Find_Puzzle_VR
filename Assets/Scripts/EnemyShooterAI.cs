@@ -17,6 +17,9 @@ public class EnemyChaseWithLimit : MonoBehaviour
     private Rigidbody rb;                 // 적의 Rigidbody 컴포넌트
     private float fireTimer = 0f;         // 총알 발사 간격을 계산할 타이머
 
+    private bool isStunned = false; // 기절 상태 여부
+    private float stunTimer = 0f;   // 기절 시간 측정
+    private float stunDuration = 5f; // 기절 지속 시간
     void Start()
     {
         rb = GetComponent<Rigidbody>();   // Rigidbody 컴포넌트 가져오기
@@ -25,6 +28,17 @@ public class EnemyChaseWithLimit : MonoBehaviour
 
     void FixedUpdate()
     {
+        // 기절 중이면 타이머만 작동시키고 나머지 무시
+        if (isStunned)
+        {
+            stunTimer += Time.fixedDeltaTime;
+            if (stunTimer >= stunDuration)
+            {
+                isStunned = false; // 기절 종료
+            }
+            return;
+        }
+
         if (target == null) return;       // 타깃이 없으면 아무 동작도 하지 않음
 
         float distance = Vector3.Distance(transform.position, target.position);
@@ -72,5 +86,10 @@ public class EnemyChaseWithLimit : MonoBehaviour
                 bulletRb.linearVelocity = direction.normalized * 10f; // 일정 속도로 발사
             }
         }
+    }
+    public void Stun()
+    {
+        isStunned = true;
+        stunTimer = 0f;
     }
 }
