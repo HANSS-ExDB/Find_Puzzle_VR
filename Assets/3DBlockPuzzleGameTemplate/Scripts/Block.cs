@@ -432,7 +432,7 @@ namespace BlockPuzzleGameTemplate
             transform.position = endPosition;
 
             // Additional actions after movement
-            transform.localScale = Vector3.one / 2;
+            transform.localScale = Vector3.one;
             IsOnGrid = false;
         }
 

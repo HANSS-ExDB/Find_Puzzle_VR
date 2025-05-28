@@ -2006,21 +2006,6 @@ MonoBehaviour:
   - {fileID: 3762552877439510575}
   - {fileID: 323175774532155195}
   - {fileID: 5101314372327065896}
-  blocks:
-  - Type_: 3
-    Color_: 1
-  - Type_: 13
-    Color_: 2
-  - Type_: 19
-    Color_: 4
-  - Type_: 12
-    Color_: 3
-  - Type_: 1
-    Color_: 3
-  - Type_: 17
-    Color_: 4
-  - Type_: 13
-    Color_: 1
 --- !u!1001 &30508781247286442
 PrefabInstance:
   m_ObjectHideFlags: 0

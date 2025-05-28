@@ -82,7 +82,7 @@ namespace BlockPuzzleGameTemplate
                     rb.constraints = RigidbodyConstraints.FreezeRotationX
                         | RigidbodyConstraints.FreezeRotationZ;
                 }
-                go.transform.localScale = Vector3.one * 0.5f;
+                go.transform.localScale = Vector3.one*1.5f;
                 go.transform.localRotation = Quaternion.identity;
                 
 

@@ -25,8 +25,8 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        // 적(Enermy)인 경우
-        else if (other.CompareTag("Enermy"))
+        // 적(Enemy)인 경우
+        else if (other.CompareTag("Enemy"))
         {
             // EnemyChaseWithLimit 스크립트 가져와서 Stun 호출
             EnemyChaseWithLimit enemy = other.GetComponent<EnemyChaseWithLimit>();
