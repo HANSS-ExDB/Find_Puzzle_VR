@@ -30,6 +30,7 @@ namespace BlockPuzzleGameTemplate
 
             this.trackRotation = false;
         }
+
         private void Start ()
         {
             if (gameObject.layer == LayerMask.NameToLayer("InventoryOnly"))
