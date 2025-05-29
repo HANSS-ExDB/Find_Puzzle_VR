@@ -9089,12 +9089,12 @@ PrefabInstance:
     - target: {fileID: 6222288292681957067, guid: 1f7f001ff5bce1e47a33764075a3d0da,
         type: 3}
       propertyPath: m_Height
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6222288292681957067, guid: 1f7f001ff5bce1e47a33764075a3d0da,
         type: 3}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6222288292681957067, guid: 1f7f001ff5bce1e47a33764075a3d0da,
         type: 3}
@@ -10946,6 +10946,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1212838961183702632, guid: 65fa1f4f21c24d34b8ead244940abc6e,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212838961183702632, guid: 65fa1f4f21c24d34b8ead244940abc6e,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3702672377437872104, guid: 65fa1f4f21c24d34b8ead244940abc6e,
         type: 3}
       propertyPath: target
