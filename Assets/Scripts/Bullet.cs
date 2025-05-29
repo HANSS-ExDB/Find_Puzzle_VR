@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Player") || other.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
+            Debug.Log("Hit : "+ other.tag);
         }
         // 적(Enemy)인 경우
         else if (other.CompareTag("Enemy"))
@@ -36,6 +37,7 @@ public class Bullet : MonoBehaviour
             }
 
             Destroy(gameObject);
+            Debug.Log("Hit : " + other.tag + "is Stunned");
         }
     }
 }
