@@ -6,6 +6,7 @@ using UnityEngine.XR;
 public class VRSceneController : MonoBehaviour
 {
     private InputDevice rightHand;
+    private InputDevice leftHand;
 
     void Start()
     {
@@ -42,5 +43,6 @@ public class VRSceneController : MonoBehaviour
             // BasicScene ·Îµå
             SceneManager.LoadScene("BasicScene");
         }
+        
     }
 }

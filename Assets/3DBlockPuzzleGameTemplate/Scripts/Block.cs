@@ -12,6 +12,7 @@ namespace BlockPuzzleGameTemplate
     public class Block : XRGrabInteractable //MonoBehaviour
     {
         Level level;
+
         [SerializeField]
         Transform PrevPos;
         public bool IsDrag = false;
@@ -23,7 +24,7 @@ namespace BlockPuzzleGameTemplate
         public bool IsStatic;
         public bool IsOnGrid = false;
 
-
+        bool _isReturning = false;
         protected override void Awake()
         {
             base.Awake();
@@ -205,6 +206,8 @@ namespace BlockPuzzleGameTemplate
         public void FinishedDrag ()
         {
             //Debug.Log("Finishing Drag");
+            if (_isReturning)
+                return;               // 이미 복귀 중이면 무시
 
             // Re-enable colliders on block tiles after dragging
             foreach (var tile in blockTiles)
@@ -308,7 +311,6 @@ namespace BlockPuzzleGameTemplate
                 }
                 else
                 {
-
                     yield return StartCoroutine(ReturnToRandomPos(Offset));
                 }
 
@@ -413,6 +415,8 @@ namespace BlockPuzzleGameTemplate
 
         public IEnumerator ReturnToPosition ()
         {
+            _isReturning = true;
+
             float duration = 0.5f; // Duration of the movement
             Vector3 startPosition = transform.position; // Starting position
             Vector3 endPosition = PrevPos.position; // Target position
@@ -439,10 +443,14 @@ namespace BlockPuzzleGameTemplate
             else 
                 transform.localScale = Vector3.one;
             IsOnGrid = false;
+            _isReturning = false;
         }
 
         IEnumerator ReturnToRandomPos ( Vector3 offset )
         {
+
+            _isReturning = true;
+
             Debug.Log(Pos().name + " : " + Pos().transform.parent.name);
             Transform targetPosition = Pos();
             transform.SetParent(targetPosition);
@@ -476,6 +484,8 @@ namespace BlockPuzzleGameTemplate
             PrevPos = targetPosition;
             targetPosition.GetComponent<BlockTarget>().TheOwner = this.gameObject;
             IsOnGrid = false;
+
+            _isReturning = false;
         }
 
         Transform Pos ()

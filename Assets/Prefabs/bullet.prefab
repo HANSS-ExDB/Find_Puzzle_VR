@@ -78,6 +78,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5f9d809f37cfd154a870910c64268525,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     - target: {fileID: 1337190837013920584, guid: 5f9d809f37cfd154a870910c64268525,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -233,4 +238,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   lifetime: 5
-  playerHitSound: {fileID: 8300000, guid: 4fabe9830f2b20542a3b673a37c0738a, type: 3}
+  playerHitSound: {fileID: 8300000, guid: eb4fd3007d1fbfb48b87b324524e739d, type: 3}

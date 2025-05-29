@@ -8,6 +8,12 @@ public class SceneLoad : MonoBehaviour
         SceneManager.LoadScene("DescriptionScene");  // GameScene 이름은 이동하고자 하는 Scene
     }
 
+    public void RestartGameScene() {
+        {
+            SceneManager.LoadScene("StartScene", LoadSceneMode.Single);
+        }
+    }
+
     public void ExitGame()
     {
         Application.Quit();

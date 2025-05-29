@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 217530279848408599}
   serializedVersion: 2
   m_LocalRotation: {x: 0.4785121, y: -0.5206018, z: -0.47851202, w: 0.52060175}
-  m_LocalPosition: {x: 0.0000000016597982, y: 0.55409944, z: 0.03797033}
+  m_LocalPosition: {x: 0.0000000016597982, y: 0, z: 0.03797033}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5245,7 +5245,7 @@ Transform:
   m_GameObject: {fileID: 6249837130758958017}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0.5, z: 1.5}
+  m_LocalPosition: {x: -0.15, y: 0.3, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5309,7 +5309,7 @@ Transform:
   m_GameObject: {fileID: 6672448070812037839}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0.00000005294285}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5609,7 +5609,7 @@ Transform:
   m_GameObject: {fileID: 8905622018786256719}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.44, z: 5}
+  m_LocalPosition: {x: 0, y: 2.09, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5676,7 +5676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  moveSpeed: 3
+  moveSpeed: 4
   detectionRange: 20
   stopDistance: 2
   rotationSpeed: 5
@@ -5685,6 +5685,7 @@ MonoBehaviour:
   firePoint: {fileID: 4305434639153921588}
   fireInterval: 3
   fireSound: {fileID: 8300000, guid: 7e021d5e3feb7b54686a5256cc02b808, type: 3}
+  stunDuration: 3
 --- !u!54 &1212838961183702632
 Rigidbody:
   m_ObjectHideFlags: 0

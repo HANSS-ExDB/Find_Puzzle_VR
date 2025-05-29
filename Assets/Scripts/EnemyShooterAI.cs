@@ -25,7 +25,7 @@ public class EnemyChaseWithLimit : MonoBehaviour
 
     private bool isStunned = false; // 기절 상태 여부
     private float stunTimer = 0f;   // 기절 시간 측정
-    private float stunDuration = 5f; // 기절 지속 시간
+    public float stunDuration = 5f; // 기절 지속 시간
     void Start()
     {
         animator = GetComponent<Animator>();
