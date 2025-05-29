@@ -233,3 +233,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   lifetime: 5
+  playerHitSound: {fileID: 8300000, guid: 4fabe9830f2b20542a3b673a37c0738a, type: 3}
