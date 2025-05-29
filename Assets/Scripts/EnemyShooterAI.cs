@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class EnemyChaseWithLimit : MonoBehaviour
 {
+    Animator animator;
+
     public Transform target;              // 추적할 대상 (플레이어 등)
     public float moveSpeed = 3f;          // 이동 속도
     public float detectionRange = 15f;    // 탐지 거리 (이 거리 이내에 있어야 추적 시작)
@@ -22,6 +24,7 @@ public class EnemyChaseWithLimit : MonoBehaviour
     private float stunDuration = 5f; // 기절 지속 시간
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();   // Rigidbody 컴포넌트 가져오기
         rb.freezeRotation = true;         // 물리 엔진에 의해 회전하지 않도록 고정
     }
@@ -39,12 +42,18 @@ public class EnemyChaseWithLimit : MonoBehaviour
             return;
         }
 
-        if (target == null) return;       // 타깃이 없으면 아무 동작도 하지 않음
-
+        if (target == null)
+        {
+            animator.SetBool("isMoving", false);
+            return;       // 타깃이 없으면 아무 동작도 하지 않음
+        }
         float distance = Vector3.Distance(transform.position, target.position);
 
-        if (distance > detectionRange) return;  // 탐지 거리보다 멀면 아무 동작도 하지 않음
-
+        if (distance > detectionRange)
+        {
+            animator.SetBool("isMoving", false);
+            return;  // 탐지 거리보다 멀면 아무 동작도 하지 않음
+        }
         // 타깃을 향한 방향 벡터 계산
         Vector3 direction = (target.position - transform.position).normalized;
         direction.y = 0f; // 수직 방향 무시 (Y축 회전 안 하도록)
@@ -58,6 +67,12 @@ public class EnemyChaseWithLimit : MonoBehaviour
         {
             Vector3 nextPos = rb.position + direction * moveSpeed * Time.fixedDeltaTime;
             rb.MovePosition(nextPos); // Rigidbody를 사용한 이동 (충돌 고려)
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            // 충분히 가까워서 정지
+            animator.SetBool("isMoving", false);
         }
 
         // 총알 발사 타이머 작동
@@ -74,6 +89,7 @@ public class EnemyChaseWithLimit : MonoBehaviour
     {
         if (bulletPrefab != null && firePoint != null)
         {
+            animator.SetTrigger("Fire");
             // 총알 인스턴스 생성
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
@@ -89,6 +105,7 @@ public class EnemyChaseWithLimit : MonoBehaviour
     }
     public void Stun()
     {
+        animator.SetTrigger("isStunned");
         isStunned = true;
         stunTimer = 0f;
     }
