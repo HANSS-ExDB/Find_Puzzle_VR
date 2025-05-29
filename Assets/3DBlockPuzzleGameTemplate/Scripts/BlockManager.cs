@@ -1,10 +1,6 @@
 using BlockPuzzleGameTemplate;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.SearchService;
-using UnityEditor.UIElements;
 using UnityEngine;
 namespace BlockPuzzleGameTemplate
 {
