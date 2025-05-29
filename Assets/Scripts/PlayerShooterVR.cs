@@ -16,13 +16,17 @@ public class PlayerShooterVR : MonoBehaviour
     [Header("Input")]
     public XRNode inputSource = XRNode.RightHand;
 
+    public AudioClip fireSound; // 발사 사운드
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void Update()
     {
-        // ��ٿ� üũ
         if (Time.time < nextFireTime)
             return;
-
-        // Ʈ���� �Է�
         InputDevice device = InputDevices.GetDeviceAtXRNode(inputSource);
         if (device.TryGetFeatureValue(CommonUsages.triggerButton, out bool isPressed) && isPressed)
         {
@@ -40,5 +44,9 @@ public class PlayerShooterVR : MonoBehaviour
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)
             rb.linearVelocity = firePoint.forward * bulletSpeed;
+        if (fireSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(fireSound);
+        }
     }
 }

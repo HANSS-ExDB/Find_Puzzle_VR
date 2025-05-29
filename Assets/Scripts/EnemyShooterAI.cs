@@ -1,11 +1,11 @@
 using UnityEngine;
 
 // Rigidbody 컴포넌트를 필수로 요구함 (없으면 자동으로 추가됨)
+
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(AudioSource))]
 public class EnemyChaseWithLimit : MonoBehaviour
 {
-    Animator animator;
-
     public Transform target;              // 추적할 대상 (플레이어 등)
     public float moveSpeed = 3f;          // 이동 속도
     public float detectionRange = 15f;    // 탐지 거리 (이 거리 이내에 있어야 추적 시작)
@@ -16,7 +16,11 @@ public class EnemyChaseWithLimit : MonoBehaviour
     public Transform firePoint;           // 총알이 발사되는 위치
     public float fireInterval = 2f;       // 총알 발사 간격 (초)
 
+    public AudioClip fireSound;           // 총알 발사 사운드
+    private AudioSource audioSource;
+
     private Rigidbody rb;                 // 적의 Rigidbody 컴포넌트
+    private Animator animator;            // 적의 Animator 컴포넌트
     private float fireTimer = 0f;         // 총알 발사 간격을 계산할 타이머
 
     private bool isStunned = false; // 기절 상태 여부
@@ -38,6 +42,10 @@ public class EnemyChaseWithLimit : MonoBehaviour
             if (stunTimer >= stunDuration)
             {
                 isStunned = false; // 기절 종료
+                if (animator != null)
+                {
+                    animator.speed = 1f;
+                }
             }
             return;
         }
@@ -101,12 +109,24 @@ public class EnemyChaseWithLimit : MonoBehaviour
                 direction.y = 0; // 수직 방향 제거
                 bulletRb.linearVelocity = direction.normalized * 10f; // 일정 속도로 발사
             }
+
+            if (fireSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(fireSound);
+            }
         }
     }
     public void Stun()
     {
         animator.SetTrigger("isStunned");
+
         isStunned = true;
         stunTimer = 0f;
+
+        // 애니메이션 정지
+        if (animator != null)
+        {
+            animator.speed = 0f;
+        }
     }
 }
