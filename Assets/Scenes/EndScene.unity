@@ -3134,6 +3134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 635428510}
   - component: {fileID: 635428509}
+  - component: {fileID: 635428511}
   m_Layer: 0
   m_Name: bgmPlayer
   m_TagString: Untagged
@@ -3253,6 +3254,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &635428511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635428508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ab00ab21283b9449ec52940d19157d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeManager: {fileID: 0}
+  TimeText: {fileID: 576042663}
 --- !u!1001 &661018635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9277,7 +9292,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC7C8\uC2DC\uC791\n"
+  m_text: "\uC7AC\uC2DC\uC791\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26383e40faf158a48b913259690098be, type: 2}
   m_sharedMaterial: {fileID: -3969317115223494017, guid: 26383e40faf158a48b913259690098be,

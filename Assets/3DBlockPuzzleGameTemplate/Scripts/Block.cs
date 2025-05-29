@@ -536,20 +536,32 @@ namespace BlockPuzzleGameTemplate
             Vector3 cumulativeOffset = Vector3.zero;
             List<GameObject> Tiles = new List<GameObject>();
             Tiles.Clear();
-            for (int i = 0 ; i < blockTiles.Length ; i++)
+            for (int i = 0; i < blockTiles.Length; i++)
             {
-                Transform hitTransform = blockTiles [i].GetSingleHit();
-                Debug.Log(hitTransform.name);
+                // 1) 블록이 현재 닿은 Tile Transform
+                Transform hitTransform = blockTiles[i]?.GetSingleHit();
 
-                if (hitTransform != null && hitTransform.GetComponentInParent<Tile>() is Tile tileComponent)
+                // 2) null 체크 → 로그는 null 이 아닐 때만
+                if (hitTransform != null)
                 {
-                    if (tileComponent.AddOwner(blockTiles [i].gameObject))
-                    {
-                        correctCount++;
-                        Debug.Log(correctCount);
+                    Debug.Log(hitTransform.name);
 
-                        Tiles.Add(tileComponent.gameObject);
+                    // 3) 부모에 Tile 컴포넌트가 있는지
+                    Tile tileComponent = hitTransform.GetComponentInParent<Tile>();
+                    if (tileComponent != null)
+                    {
+                        // 4) 한 블록당 한 번만 카운트
+                        if (tileComponent.AddOwner(blockTiles[i].gameObject))
+                        {
+                            correctCount++;
+                            Debug.Log($"Correct count: {correctCount}");
+                            Tiles.Add(tileComponent.gameObject);
+                        }
                     }
+                }
+                else
+                {
+                    Debug.Log("CheckCorrect: 이 블록은 아직 슬롯에 안 들어갔습니다.");
                 }
             }
             if (correctCount == blockTiles.Length)
