@@ -8,12 +8,14 @@ namespace BlockPuzzleGameTemplate
     {
         LevelManager levelManager;
         InventoryManager inventory;
+        TimeManager timeManager;
 
         void Start()
         {
             levelManager = FindObjectOfType<LevelManager>();
             inventory = FindObjectOfType<InventoryManager>();
-            StartGame();
+            timeManager =FindAnyObjectByType<TimeManager>();
+        StartGame();
         }
 
         public void StartGame()
@@ -51,6 +53,8 @@ namespace BlockPuzzleGameTemplate
         IEnumerator RestartLevel(bool isFromPause)
         {
             yield return new WaitForSeconds(.5f);
+            inventory.items.Clear();
+            timeManager.pasedTime = 0f;
             SceneManager.LoadScene("StartScene");
         }
 

@@ -5678,12 +5678,12 @@ MonoBehaviour:
   target: {fileID: 0}
   moveSpeed: 4
   detectionRange: 20
-  stopDistance: 2
+  stopDistance: 5
   rotationSpeed: 5
   bulletPrefab: {fileID: 9125460519367338673, guid: 0258696755ef0bd4681eb49c64b74c43,
     type: 3}
   firePoint: {fileID: 4305434639153921588}
-  fireInterval: 3
+  fireInterval: 4
   fireSound: {fileID: 8300000, guid: 7e021d5e3feb7b54686a5256cc02b808, type: 3}
   stunDuration: 3
 --- !u!54 &1212838961183702632
