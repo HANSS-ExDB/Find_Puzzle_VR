@@ -171,6 +171,9 @@ namespace BlockPuzzleGameTemplate
         [ContextMenu("Force End Level")]
         public void EndLevelScreen()
         {
+
+            SceneManager.LoadScene("EndScene");
+
             CurrentLevelCounter++;
             PlayerPrefs.SetInt("LEVEL", CurrentLevelCounter);
 

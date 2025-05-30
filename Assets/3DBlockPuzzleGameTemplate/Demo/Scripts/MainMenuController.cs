@@ -1,16 +1,21 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace BlockPuzzleGameTemplate
 {
     public class MainMenuController : MonoBehaviour
     {
         LevelManager levelManager;
+        InventoryManager inventory;
+        TimeManager timeManager;
 
         void Start()
         {
             levelManager = FindObjectOfType<LevelManager>();
-            StartGame();
+            inventory = FindObjectOfType<InventoryManager>();
+            timeManager =FindAnyObjectByType<TimeManager>();
+        StartGame();
         }
 
         public void StartGame()
@@ -35,6 +40,9 @@ namespace BlockPuzzleGameTemplate
             StartCoroutine(GoToNextLevel());
         }
 
+        public void ReturnBasic() {
+            StartCoroutine(ReturnToBasic());
+        }
         IEnumerator GoToNextLevel()
         {
             yield return new WaitForSeconds(1f);
@@ -45,8 +53,16 @@ namespace BlockPuzzleGameTemplate
         IEnumerator RestartLevel(bool isFromPause)
         {
             yield return new WaitForSeconds(.5f);
-            levelManager.RestartLevel();
-            yield return null;
+            inventory.items.Clear();
+            timeManager.pasedTime = 0f;
+            SceneManager.LoadScene("StartScene");
+        }
+
+        IEnumerator ReturnToBasic()
+        {
+            yield return new WaitForSeconds(.5f);
+            SceneManager.LoadScene("BasicScene");
+
         }
     }
 }

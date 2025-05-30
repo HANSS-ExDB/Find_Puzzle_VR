@@ -2,11 +2,17 @@ using BlockPuzzleGameTemplate;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+
+
 namespace BlockPuzzleGameTemplate
 {
-    public class Block : MonoBehaviour
+    public class Block : XRGrabInteractable //MonoBehaviour
     {
         Level level;
+
         [SerializeField]
         Transform PrevPos;
         public bool IsDrag = false;
@@ -18,6 +24,13 @@ namespace BlockPuzzleGameTemplate
         public bool IsStatic;
         public bool IsOnGrid = false;
 
+        bool _isReturning = false;
+        protected override void Awake()
+        {
+            base.Awake();
+
+            this.trackRotation = false;
+        }
 
         private void Start ()
         {
@@ -45,7 +58,7 @@ namespace BlockPuzzleGameTemplate
             if (levelRef != null)
                 marker.transform.SetParent(levelRef.transform);
             else
-                Debug.LogWarning("[Block] �θ� Level�� �����ϴ�.");
+                Debug.LogWarning("[Block] �θ� Level�� �����ϴ�.");
 
             marker.transform.localScale = new Vector3(1, 0.2f, 1);
 
@@ -193,6 +206,8 @@ namespace BlockPuzzleGameTemplate
         public void FinishedDrag ()
         {
             //Debug.Log("Finishing Drag");
+            if (_isReturning)
+                return;               // 이미 복귀 중이면 무시
 
             // Re-enable colliders on block tiles after dragging
             foreach (var tile in blockTiles)
@@ -204,7 +219,7 @@ namespace BlockPuzzleGameTemplate
             Level level = Level.Instance;
             if (level == null)
             {
-                Debug.LogWarning("Level �ν��Ͻ��� ã�� �� �����ϴ�. FinishedDrag �ǳʶ�.");
+                Debug.LogWarning("Level �ν��Ͻ��� ã�� �� �����ϴ�. FinishedDrag �ǳʶ�.");
                 return;
             }
 
@@ -296,7 +311,6 @@ namespace BlockPuzzleGameTemplate
                 }
                 else
                 {
-
                     yield return StartCoroutine(ReturnToRandomPos(Offset));
                 }
 
@@ -401,6 +415,8 @@ namespace BlockPuzzleGameTemplate
 
         public IEnumerator ReturnToPosition ()
         {
+            _isReturning = true;
+
             float duration = 0.5f; // Duration of the movement
             Vector3 startPosition = transform.position; // Starting position
             Vector3 endPosition = PrevPos.position; // Target position
@@ -422,12 +438,19 @@ namespace BlockPuzzleGameTemplate
             transform.position = endPosition;
 
             // Additional actions after movement
-            transform.localScale = Vector3.one / 2;
+            if (SceneManager.GetActiveScene().name =="BasicScene")
+                transform.localScale = Vector3.one/2f;
+            else 
+                transform.localScale = Vector3.one;
             IsOnGrid = false;
+            _isReturning = false;
         }
 
         IEnumerator ReturnToRandomPos ( Vector3 offset )
         {
+
+            _isReturning = true;
+
             Debug.Log(Pos().name + " : " + Pos().transform.parent.name);
             Transform targetPosition = Pos();
             transform.SetParent(targetPosition);
@@ -461,6 +484,8 @@ namespace BlockPuzzleGameTemplate
             PrevPos = targetPosition;
             targetPosition.GetComponent<BlockTarget>().TheOwner = this.gameObject;
             IsOnGrid = false;
+
+            _isReturning = false;
         }
 
         Transform Pos ()
@@ -511,20 +536,32 @@ namespace BlockPuzzleGameTemplate
             Vector3 cumulativeOffset = Vector3.zero;
             List<GameObject> Tiles = new List<GameObject>();
             Tiles.Clear();
-            for (int i = 0 ; i < blockTiles.Length ; i++)
+            for (int i = 0; i < blockTiles.Length; i++)
             {
-                Transform hitTransform = blockTiles [i].GetSingleHit();
-                Debug.Log(hitTransform.name);
+                // 1) 블록이 현재 닿은 Tile Transform
+                Transform hitTransform = blockTiles[i]?.GetSingleHit();
 
-                if (hitTransform != null && hitTransform.GetComponentInParent<Tile>() is Tile tileComponent)
+                // 2) null 체크 → 로그는 null 이 아닐 때만
+                if (hitTransform != null)
                 {
-                    if (tileComponent.AddOwner(blockTiles [i].gameObject))
-                    {
-                        correctCount++;
-                        Debug.Log(correctCount);
+                    Debug.Log(hitTransform.name);
 
-                        Tiles.Add(tileComponent.gameObject);
+                    // 3) 부모에 Tile 컴포넌트가 있는지
+                    Tile tileComponent = hitTransform.GetComponentInParent<Tile>();
+                    if (tileComponent != null)
+                    {
+                        // 4) 한 블록당 한 번만 카운트
+                        if (tileComponent.AddOwner(blockTiles[i].gameObject))
+                        {
+                            correctCount++;
+                            Debug.Log($"Correct count: {correctCount}");
+                            Tiles.Add(tileComponent.gameObject);
+                        }
                     }
+                }
+                else
+                {
+                    Debug.Log("CheckCorrect: 이 블록은 아직 슬롯에 안 들어갔습니다.");
                 }
             }
             if (correctCount == blockTiles.Length)
@@ -659,6 +696,17 @@ namespace BlockPuzzleGameTemplate
                 }
             }
             return false;
+        }
+        protected override void OnSelectExited(SelectExitEventArgs args)
+        {
+            base.OnSelectExited(args);
+
+            // 1) 드래그 중 블록 타일 콜라이더 다시 활성화
+            foreach (var tile in blockTiles)
+                tile.GetComponent<Collider>().enabled = true;
+
+            // 2) 원래 클릭&드래그에서 쓰던 퍼즐 배치 체크 및 스냅 로직 호출
+            FinishedDrag();
         }
     }
 }

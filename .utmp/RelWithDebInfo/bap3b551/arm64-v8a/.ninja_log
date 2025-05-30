@@ -1,0 +1,10 @@
+# ninja log v5
+92	2434	7702261113895115	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	a7300276497d203e
+68	2458	7702261114045655	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	64fcf6694b999e96
+113	2509	7702261114669740	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	58f0b736d08b77b1
+15	2515	7702261114684889	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	becb84b714c4c2f6
+136	2605	7702261115658045	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	1d3b4df148e54218
+30	2608	7702261115642707	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	56743375bbdc0f14
+47	2880	7702261118477170	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	bab2451776db4de
+1	2991	7702261119563554	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	861eed2a1a551a4c
+2991	3184	7702261121516075	C:/Users/gkstm/Desktop/Find_Puzzle_VR-main (2) (2)/Find_Puzzle_VR-main/Find_Puzzle_VR/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/bap3b551/obj/arm64-v8a/libgame.so	22caec75c463ffa8

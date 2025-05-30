@@ -1,0 +1,5 @@
+C:/Users/gkstm/Desktop/Find_Puzzle_VR-main (2) (2)/Find_Puzzle_VR-main/Find_Puzzle_VR/.utmp/RelWithDebInfo/bap3b551/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/gkstm/Desktop/Find_Puzzle_VR-main (2) (2)/Find_Puzzle_VR-main/Find_Puzzle_VR/.utmp/RelWithDebInfo/bap3b551/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/gkstm/Desktop/Find_Puzzle_VR-main (2) (2)/Find_Puzzle_VR-main/Find_Puzzle_VR/.utmp/RelWithDebInfo/bap3b551/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/gkstm/Desktop/Find_Puzzle_VR-main (2) (2)/Find_Puzzle_VR-main/Find_Puzzle_VR/.utmp/RelWithDebInfo/bap3b551/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/gkstm/Desktop/Find_Puzzle_VR-main (2) (2)/Find_Puzzle_VR-main/Find_Puzzle_VR/.utmp/RelWithDebInfo/bap3b551/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

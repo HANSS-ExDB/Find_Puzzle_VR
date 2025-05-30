@@ -1,10 +1,6 @@
 using BlockPuzzleGameTemplate;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.SearchService;
-using UnityEditor.UIElements;
 using UnityEngine;
 namespace BlockPuzzleGameTemplate
 {
@@ -28,18 +24,13 @@ namespace BlockPuzzleGameTemplate
         {
             colorLib_ = FindObjectOfType<ColorLib>();
             blockLib_ = FindObjectOfType<BlockLib>();
-        }
-        void Update ()
-        {
             if (!isSpawningBlocks)
             {
-                CheckAndSpawnBlocksSequentially();
+                StartCoroutine(SpawnBlocksSequentially());
             }
         }
-
-        private void CheckAndSpawnBlocksSequentially ()
-        {
-            StartCoroutine(SpawnBlocksSequentially());
+        void Update ()
+        {  
         }
 
         private IEnumerator SpawnBlocksSequentially()
@@ -79,8 +70,17 @@ namespace BlockPuzzleGameTemplate
                     Quaternion.identity,
                     slot.transform
                 );
-                go.transform.localScale = Vector3.one * 0.5f;
+                var rb = go.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.useGravity = false;
+                    rb.isKinematic = true;
+                    rb.constraints = RigidbodyConstraints.FreezeRotationX
+                        | RigidbodyConstraints.FreezeRotationZ;
+                }
+                go.transform.localScale = Vector3.one;
                 go.transform.localRotation = Quaternion.identity;
+                
 
                 // 4) 인벤토리에 저장된 머티리얼(entry.Mat) 적용
                 if (entry.Mat != null)
