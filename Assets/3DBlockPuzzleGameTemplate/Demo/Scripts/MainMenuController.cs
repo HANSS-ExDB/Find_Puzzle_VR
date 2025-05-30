@@ -7,10 +7,12 @@ namespace BlockPuzzleGameTemplate
     public class MainMenuController : MonoBehaviour
     {
         LevelManager levelManager;
+        InventoryManager inventory;
 
         void Start()
         {
             levelManager = FindObjectOfType<LevelManager>();
+            inventory = FindObjectOfType<InventoryManager>();
             StartGame();
         }
 
@@ -49,7 +51,7 @@ namespace BlockPuzzleGameTemplate
         IEnumerator RestartLevel(bool isFromPause)
         {
             yield return new WaitForSeconds(.5f);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("StartScene");
         }
 
         IEnumerator ReturnToBasic()

@@ -9159,7 +9159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59111f0bfff56524aa9d328c233cba45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 9125460519367338673, guid: 0258696755ef0bd4681eb49c64b74c43,
+  bulletPrefab: {fileID: 9125460519367338673, guid: 883d0262b76713640956f756584e96d6,
     type: 3}
   firePoint: {fileID: 1111249394}
   bulletSpeed: 20
